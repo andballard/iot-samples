@@ -19,11 +19,11 @@ getting started with application development.
 You should have now launched your simple kit-based application!
  
 ## Custom Extensions
-The [main extension](./source/extensions/omni.hello.world/) is registered as omni.hello.world. In this extension, we load the usd and other required dependencies.
+The [main extension](./src/kit-app-template/source/extensions/omni.hello.world/) is registered as omni.hello.world. In this extension, we load the usd and other required dependencies.
  
-The [robot arm extension](./source/extensions/msft.robotcontroller/) is registerd as msft.robotcontroller. This extension handles robot arm movement by listening to incoming IoT data in the session layer.
+The [robot arm extension](./src/kit-app-template/source/extensions/msft.robotcontroller/) is registerd as msft.robotcontroller. This extension handles robot arm movement by listening to incoming IoT data in the session layer.
  
-The IoT [widget extension](./source/extensions/omni.example.ui_scene.widget_info/) is registered as omni.example.ui_scene.widget_info. This extension is activated by clicking on the robot arm and also listens to the incoming IoT data from the session layer.
+The IoT [widget extension](./src/kit-app-template/source/extensions/omni.example.ui_scene.widget_info/) is registered as omni.example.ui_scene.widget_info. This extension is activated by clicking on the robot arm and also listens to the incoming IoT data from the session layer.
  
 ## Environment Settings
 Name | Type | Required | Example
@@ -36,7 +36,7 @@ These settings are required for the application and must be present in the app p
  
 ## Robot Simulator
  
-This repo contains a robot arm [simulator](./source/mqtt_sim/) that can be used when the physical magnemotion data stream is not available. This module loops over data in a [csv](./source/mqtt_sim/pos.csv) file and sends the data to the configured mqtt broker. The simulator can be deployed as a docker container in the cloud or ran locally for testing.
+This repo contains a robot arm [simulator](./src/kit-app-template/source/mqtt_sim/) that can be used when the physical magnemotion data stream is not available. This module loops over data in a [csv](./src/kit-app-template/source/mqtt_sim/pos.csv) file and sends the data to the configured mqtt broker. The simulator can be deployed as a docker container in the cloud or ran locally for testing.
  
 ## Running robot simulator with Docker
  
@@ -54,9 +54,7 @@ docker run -d \
  
 This container can be deployed to the Azure Cloud and is designed to play nicely with Azure App Services + [Azure IoT Operations](https://learn.microsoft.com/en-us/azure/iot-operations/get-started/overview-iot-operations)
  
-![Azure IoT Operations + Omniverse Architecture](./content/docs/azure-iot-operations-ov-spike.png)
- 
-To deploy the simulator to the cloud you can use a powershell script and bicep template located [here](./source/mqtt_sim/cloud/deploy.ps1).
+To deploy the simulator to the cloud you can use a powershell script and bicep template located [here](./src/kit-app-template/source/mqtt_sim/cloud/deploy.ps1).
  
 > ⚠️ **Warning** This script is designed to be run from a powershell and has only been tested on windows. It may not work on other operating systems (or the devcontainer)
  
