@@ -11,19 +11,19 @@ getting started with application development.
  
 ## Build
  
-1. Clone [this repo](https://github.com/NVIDIA-Omniverse/kit-app-template) to your local machine.
+1. Clone [this repo](https://github.com/andballard/iot-samples) to your local machine.
 2. Open a command prompt and navigate to the root of your cloned repo.
-3. Run `build.bat` to bootstrap your dev environment and build an example app.
-4. Run `_build\windows-x86_64\release\nova.iot_telemetry.bat` (or other apps) to open an example kit application.
+3. Run `build.bat` to bootstrap your dev environment and build the application.
+4. Run `_build\windows-x86_64\release\nova.iot_telemetry.bat` to open the kit application.
  
 You should have now launched your simple kit-based application!
  
 ## Custom Extensions
-The main extension is registered as omni.hello.world. In this extension, we load the usd and other required dependencies.
+The [main extension](./source/extensions/omni.hello.world/) is registered as omni.hello.world. In this extension, we load the usd and other required dependencies.
  
-The robot arm extension is registerd as msft.robotcontroller. This extension handles robot arm movement by listening to incoming data in the session layer.
+The [robot arm extension](./source/extensions/msft.robotcontroller/) is registerd as msft.robotcontroller. This extension handles robot arm movement by listening to incoming IoT data in the session layer.
  
-The widget extension is registered as omni.example.ui_scene.widget_info. This extension is activated by clicking on the robot arm and also listens to the incoming iot data from the session layer.
+The IoT [widget extension](./source/extensions/omni.example.ui_scene.widget_info/) is registered as omni.example.ui_scene.widget_info. This extension is activated by clicking on the robot arm and also listens to the incoming IoT data from the session layer.
  
 ## Environment Settings
 Name | Type | Required | Example
@@ -56,7 +56,7 @@ This container can be deployed to the Azure Cloud and is designed to play nicely
  
 ![Azure IoT Operations + Omniverse Architecture](./content/docs/azure-iot-operations-ov-spike.png)
  
-To deploy the connector to the cloud you can use a powershell script and bicep template located [here](./source/mqtt_sim/cloud/deploy.ps1).
+To deploy the simulator to the cloud you can use a powershell script and bicep template located [here](./source/mqtt_sim/cloud/deploy.ps1).
  
 > ⚠️ **Warning** This script is designed to be run from a powershell and has only been tested on windows. It may not work on other operating systems (or the devcontainer)
  
@@ -65,7 +65,7 @@ To deploy the connector to the cloud you can use a powershell script and bicep t
 .\deploy.ps1 -resourceGroupName 'ov-connector' -location 'eastus2' -dockerImageName 'acrsimplant.azurecr.io/mag_mqtt_sim:1.0.4' -sim_cert_path 'your-cert-path' -sim_key_path 'your-key-path' -csv_path 'your-csv-path' -docker_registry_password  'YourAcrPassword'  -docker_registry_server_url 'acrsimplant.azurecr.io' -docker_registry_username 'acrsimplant'
 ```
  
-This will run a bicep deployment which creates an azure app service which points to the docker image you specify - (hopefully, containing your ingest_app_mqtt app.)
+This will run a bicep deployment which creates an azure app service which points to the docker image you specify - (hopefully, containing your mqtt_sim app.)
  
 ## Contributing
 The source code for this repository is provided as-is and we are not accepting outside contributions.
