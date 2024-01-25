@@ -19,11 +19,11 @@ getting started with application development.
 You should have now launched your simple kit-based application!
  
 ## Custom Extensions
-The [main extension](./src/kit-app-template/source/extensions/omni.hello.world/) is registered as omni.hello.world. In this extension, we load the usd and other required dependencies.
+The [main extension](./src/kit-app-template/source/extensions/msft.nova.usd_explorer/) is registered as msft.nova.usd_explorer. In this extension, we load the usd and other required dependencies.
  
-The [robot arm extension](./src/kit-app-template/source/extensions/msft.robotcontroller/) is registerd as msft.robotcontroller. This extension handles robot arm movement by listening to incoming IoT data in the session layer.
+The [robot arm extension](./src/kit-app-template/source/extensions/msft.nova.robot_controller/) is registerd as msft.nova.robot_controller. This extension handles robot arm movement by listening to incoming IoT data in the session layer.
  
-The IoT [widget extension](./src/kit-app-template/source/extensions/omni.example.ui_scene.widget_info/) is registered as omni.example.ui_scene.widget_info. This extension is activated by clicking on the robot arm and also listens to the incoming IoT data from the session layer.
+The IoT [widget extension](./src/kit-app-template/source/extensions/msft.nova.iot_info_panel/) is registered as msft.nova.iot_info_panel. This extension is activated by clicking on the robot arm and also listens to the incoming IoT data from the session layer.
  
 ## Environment Settings
 Name | Type | Required | Example
