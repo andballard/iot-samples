@@ -11,7 +11,7 @@ param csv_path string = ''
 param dockerRegistryServerName string = 'acrsimplant.azurecr.io'
 param dockerRegistryUserName string = 'acrsimplant'
 @secure()
-param dockerRegistryPassword string = 'UUUkKr5mSgQoDpyBwbV2Vw7lInk37wgJiK3YuMiyn8+ACRAVov7k' // Replace with your secret reference or leave as empty string
+param dockerRegistryPassword string = '' // Replace with your secret reference or leave as empty string
 
 
 
