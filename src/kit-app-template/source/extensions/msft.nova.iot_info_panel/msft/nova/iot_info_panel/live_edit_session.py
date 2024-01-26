@@ -19,8 +19,10 @@ class LiveEditSession:
     toml_url: {session_folder_url}/{session-name}/__session__.toml
     """
 
-    def __init__(self, stage_url):
+    def __init__(self, stage_url, host, live_session_path):
         self.session_name = "iot_session"
+        self.host = host
+        self.live_session_path = live_session_path
         self.stage_url = stage_url
         self.omni_url = omni.client.break_url(self.stage_url)
 
@@ -33,7 +35,7 @@ class LiveEditSession:
     def ensure_exists(self):
         """Either find an existing live edit session or create a new one"""
         # get the folder contains the sessions and list the available sessions
-        _result, sessions = omni.client.list("omniverse://nucleus.azurenucleus.co.uk/Projects/OVPOC/Stages/.live/houston_facility_donut.live")
+        _result, sessions = omni.client.list(f"omniverse://{self.host}/{self.live_session_path}")
 
         for entry in sessions:
             session_name = os.path.splitext(entry.relative_path)[0]

@@ -19,7 +19,18 @@ import carb.settings
 import carb.tokens
 import omni.kit.app
 from pathlib import Path
-# layout = f"{Path(__file__).parents[2]}\\layouts\\default_layout.json"
+
+
+from dotenv import load_dotenv
+
+env = f"{Path(__file__).parents[5]}\\.env"
+
+print(f"Looking for env file at {env}")
+
+load_dotenv(env)
+
+host = os.getenv('omniverse_host')
+usd_file_path = os.getenv('usd_file_path')
 
 
 # Functions and vars are available to other extension as usual in python: `example.python_ext.some_public_function(x)`
@@ -45,7 +56,7 @@ class MyExtension(omni.ext.IExt):
             print('finished')
 
         usd_ctx = omni.usd.get_context()
-        stage2load = "omniverse://nucleus.azurenucleus.co.uk/Projects/OVPOC/Stages/houston_facility_donut.usd"
+        stage2load = f"omniverse://{host}/{usd_file_path}"
         if stage2load and len(stage2load) > 0 and (os.path.exists(stage2load) or stage2load.startswith('omniverse:')):
             usd_ctx.open_stage_with_callback(
                 stage2load,

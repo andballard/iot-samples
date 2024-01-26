@@ -20,7 +20,8 @@ load_dotenv(env)
 host = os.getenv('omniverse_host')
 robot_base_path = os.getenv('robot_base_path')
 jointList = os.getenv('robot_joint_paths')
-
+usd_file_path = os.getenv('usd_file_path')
+live_session_path = os.getenv('live_session_path')
 
 # Any class derived from `omni.ext.IExt` in top level module (defined in `python.modules` of `extension.toml`) will be
 # instantiated when extension gets enabled and `on_startup(ext_id)` will be called. Later when extension gets disabled
@@ -32,7 +33,7 @@ class MsftOmniAnimateExtension(omni.ext.IExt):
     # this extension is located on filesystem.
     def on_startup(self, ext_id):
         self._usd_context = omni.usd.get_context()
-        live_session = LiveEditSession(f"omniverse://{host}/Projects/OVPOC/Stages/houston_facility_donut.usd")
+        live_session = LiveEditSession(f"omniverse://{host}/{usd_file_path}", host, live_session_path)
         self._stage = self._usd_context.get_stage()
         session_layer = self._stage.GetSessionLayer()
         self.live_layer = live_session.ensure_exists()
