@@ -31,7 +31,8 @@ Name | Type | Required | Example
 robot_base_path | string | Y | /World/PCR_8FT2_Only_Robot/khi_rs007n_vac_UNIT1/world_003/base_link_003 |
 robot_joint_paths | string | Y | link1piv_003, link2piv_003, link3piv_003 |
 omniverse_host | string | Y | contonso.azurenucleus.co.uk |
-usd_file_path | string | Y | Projects/OVPOC/Stages/houston_facility_donut.usdk |
+usd_file_path | string | Y | Projects/OVPOC/houston_facility_donut_WorldFix/houston_facility_donut_WorldFix.usd |
+live_session_path | string | Y | Projects/OVPOC/houston_facility_donut_WorldFix/.live/houston_facility_donut_WorldFix.live |
 
 These settings are required for the application and must be present in the app package root folder.
  
